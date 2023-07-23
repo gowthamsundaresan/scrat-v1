@@ -1,0 +1,30 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "ContractMetadataInit",
+  "sourceName": "contracts/dynamic-contracts/init/ContractMetadataInit.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "prevURI",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "newURI",
+          "type": "string"
+        }
+      ],
+      "name": "ContractURIUpdated",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220972735923ed434843169780bd34d0266039b3e51aa0756867c5df9b0ae749cf464736f6c634300080c0033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220972735923ed434843169780bd34d0266039b3e51aa0756867c5df9b0ae749cf464736f6c634300080c0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

@@ -1,0 +1,36 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "PermissionsInit",
+  "sourceName": "contracts/dynamic-contracts/init/PermissionsInit.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "role",
+          "type": "bytes32"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "sender",
+          "type": "address"
+        }
+      ],
+      "name": "RoleGranted",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212206fa4ae0155d6c800a7b6e5ce553dcbecca684373b91f45db17de8b903fa056b564736f6c634300080c0033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212206fa4ae0155d6c800a7b6e5ce553dcbecca684373b91f45db17de8b903fa056b564736f6c634300080c0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
