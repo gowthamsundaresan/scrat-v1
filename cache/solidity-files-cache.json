@@ -2350,8 +2350,8 @@
       ]
     },
     "/Users/gowtham/Projects/scrat-v1/web3/contracts/CrossMarginTrading.sol": {
-      "lastModificationDate": 1689800066718,
-      "contentHash": "6588bc1b4f916137cc87c0ea4cb5fbe3",
+      "lastModificationDate": 1690147369719,
+      "contentHash": "24f377730132f16c4e6dfffa75cb0cbf",
       "sourceName": "contracts/CrossMarginTrading.sol",
       "solcConfig": {
         "version": "0.8.7",
@@ -2384,7 +2384,6 @@
         }
       },
       "imports": [
-        "hardhat/console.sol",
         "@uniswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol",
         "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol",
         "@uniswap/v3-periphery/contracts/interfaces/IQuoter.sol",
@@ -4753,8 +4752,8 @@
       ]
     },
     "/Users/gowtham/Projects/scrat-v1/web3/contracts/CrossMarginTradingTest.sol": {
-      "lastModificationDate": 1689800057651,
-      "contentHash": "5ef02cc7e68bbe47d9365272ed71637b",
+      "lastModificationDate": 1690147109917,
+      "contentHash": "c6fba57ee960a21ef41a173d146b2276",
       "sourceName": "contracts/CrossMarginTradingTest.sol",
       "solcConfig": {
         "version": "0.8.7",
@@ -4787,6 +4786,7 @@
         }
       },
       "imports": [
+        "hardhat/console.sol",
         "@uniswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol",
         "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol",
         "@uniswap/v3-periphery/contracts/interfaces/IQuoter.sol",
@@ -4799,7 +4799,7 @@
         "0.8.7"
       ],
       "artifacts": [
-        "CrossMarginTradingTest"
+        "TestingCrossMarginTrading"
       ]
     }
   }
