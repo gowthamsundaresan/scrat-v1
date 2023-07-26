@@ -2350,8 +2350,8 @@
       ]
     },
     "/Users/gowtham/Projects/scrat-v1/web3/contracts/CrossMarginTrading.sol": {
-      "lastModificationDate": 1690147369719,
-      "contentHash": "24f377730132f16c4e6dfffa75cb0cbf",
+      "lastModificationDate": 1690409166349,
+      "contentHash": "aa669d121d3c9ad5734e0cbacfab285e",
       "sourceName": "contracts/CrossMarginTrading.sol",
       "solcConfig": {
         "version": "0.8.7",
@@ -4751,10 +4751,10 @@
         "GPv2SafeERC20"
       ]
     },
-    "/Users/gowtham/Projects/scrat-v1/web3/contracts/CrossMarginTradingTest.sol": {
-      "lastModificationDate": 1690147109917,
+    "/Users/gowtham/Projects/scrat-v1/web3/contracts/TestingCrossMarginTrading.sol": {
+      "lastModificationDate": 1690172712157,
       "contentHash": "c6fba57ee960a21ef41a173d146b2276",
-      "sourceName": "contracts/CrossMarginTradingTest.sol",
+      "sourceName": "contracts/TestingCrossMarginTrading.sol",
       "solcConfig": {
         "version": "0.8.7",
         "settings": {

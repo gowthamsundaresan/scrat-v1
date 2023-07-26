@@ -9,6 +9,18 @@ import "@aave/core-v3/contracts/interfaces/IPool.sol";
 import "@balancer-labs/v2-interfaces/contracts/vault/IVault.sol";
 import "@balancer-labs/v2-interfaces/contracts/vault/IFlashLoanRecipient.sol";
 
+/**
+ * @title Cross Margin Trading contract
+ * @author Gowtham Sundaresan
+ * @notice The contract that Scrat Finance users interact with when use the margin trading product.
+ * Users can:
+ *     # Deposit funds into their margin account
+ *     # Open long & short positions
+ *     # Close long & short positions
+ *     # Withdraw funds from their margin account
+ * @dev The contract interfaces with Aave as the margin account provider, Balancer for flashloans and Uniswap V3 for swaps.
+ */
+
 contract CrossMarginTrading is IFlashLoanRecipient {
     // Token Addresses
     address private constant usdcTokenAddress = 0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174;
@@ -59,9 +71,9 @@ contract CrossMarginTrading is IFlashLoanRecipient {
     }
 
     /**
-     * @notice deposits USDC into margin account. The amount is supplied as collateral on Aave V3.
-     * @dev make sure to approve the transfer of USDC from user to this contract
-     * @param amount the amount of USDC to be transferred
+     * @notice Deposits USDC into margin account. The amount is supplied as collateral on Aave V3.
+     * @dev Make sure to approve the transfer of USDC from user to this contract.
+     * @param amount The amount of USDC to be transferred.
      */
     function depositIntoMarginAccount(uint256 amount) public {
         // Instantiate Aave V3 Pool
@@ -79,10 +91,10 @@ contract CrossMarginTrading is IFlashLoanRecipient {
     }
 
     /**
-     * @notice withdraws USDC into margin account. The amount is withdrawn from Aave V3 supplies.
-     * @dev Aave will allow the withdraw only if new HF > 1 else tx will revert
-     * @dev make sure to appove the transfer aUSDC from user to this contract
-     * @param amount the amount of USDC to be withdrawn
+     * @notice Withdraws USDC into margin account. The amount is withdrawn from Aave V3 supplies.
+     * @dev Aave will allow the withdraw only if new HF > 1 else tx will revert.
+     * @dev Make sure to appove the transfer aUSDC from user to this contract.
+     * @param amount The amount of USDC to be withdrawn.
      */
     function withdrawFromMarginAccount(uint256 amount) public {
         // Instantiate Aave V3 Pool and USDC aToken
@@ -114,7 +126,7 @@ contract CrossMarginTrading is IFlashLoanRecipient {
             (address, address, uint8, uint256)
         );
 
-        // Perform intended action
+        // Route to desired action
         if (direction == 0) {
             openLongPosition(amount, tokenAddress, userAddress);
         } else if (direction == 1) {
@@ -130,11 +142,11 @@ contract CrossMarginTrading is IFlashLoanRecipient {
     }
 
     /**
-     * @notice requests flashloan from Balancer. USDC if long, requested asset if short
-     * @dev make sure to do the necessary checks to calculate if the position can be opened else Aave will revert the tx
-     * @dev make sure to approve credit delegation of vTokens of USDC (if long) or the requested asset (if short) from user to this contract address
-     * @param amount size of position denoted in USDC (if long) or denoted in requested asset (if short)
-     * @param tokenAddress contract address of the asset
+     * @notice Requests flashloan from Balancer. USDC if long, requested asset if short.
+     * @dev Make sure to do the necessary checks to calculate if the position can be opened else Aave will revert the tx.
+     * @dev Make sure to approve credit delegation of vTokens of USDC (if long) or the requested asset (if short) from user to this contract address.
+     * @param amount Size of position denoted in USDC (if long) or denoted in requested asset (if short).
+     * @param tokenAddress Contract address of a supported asset.
      * @param direction 0 = long, 1 = short
      */
     function requestOpen(uint256 amount, address tokenAddress, uint8 direction) public {
@@ -223,14 +235,14 @@ contract CrossMarginTrading is IFlashLoanRecipient {
     }
 
     /**
-     * @notice requests flashloan from Balancer. Requested asset if long, USDC if short
-     * @dev make sure to do the necessary checks to calculate if the position can be closed else Aave will revert the tx
-     * @dev if closing long, make sure to approve the transfer of close size of tokens and aTokens of the requested asset from user to this contract address
-     * @dev if closing short, make sure to approve the transfer of close size of USDC and aUSDC from user to this contract address
-     * @param repay if closing long, size of position minus profit (denoted in requested asset). If closing short, size of borrow (denoted in USDC)
-     * @param tokenAddress contract address of the asset
-     * @param direction 2 = closing long, 3 = closing short
-     * @param profit amount of profit booked. If closing long, denoted in requested asset. If closing short, denoted in USDC. 0 if profit <= 0
+     * @notice Requests flashloan from Balancer. Requested asset if long, USDC if short.
+     * @dev Make sure to do the necessary checks to calculate if the position can be closed else Aave will revert the tx.
+     * @dev If closing long, make sure to approve the transfer of close size of tokens and aTokens of the requested asset from user to this contract address.
+     * @dev If closing short, make sure to approve the transfer of close size of USDC and aUSDC from user to this contract address.
+     * @param repay If closing long, size of position minus profit (denoted in requested asset). If closing short, size of borrow (denoted in USDC).
+     * @param tokenAddress Contract address of the asset.
+     * @param direction 2 = closing long, 3 = closing short.
+     * @param profit Amount of profit booked. If closing long, denoted in requested asset. If closing short, denoted in USDC. 0 if profit <= 0.
      */
     function requestClose(
         uint256 repay,
