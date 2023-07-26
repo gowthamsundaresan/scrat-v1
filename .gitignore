@@ -3,3 +3,6 @@
 
 # testing contracts
 contracts/CrossMarginTradingTest.sol
+
+# misc.
+yarn-error.log
