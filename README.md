@@ -1,6 +1,4 @@
-# scrat-v1
-
-Scrat Protocol Smart Contract. 
+# Scrat Protocol Smart Contract. 
 
 The contract interfaces with Aave as the margin account provider, Balancer for flashloans and Uniswap V3 for swaps.
 
@@ -12,7 +10,7 @@ The contract interfaces with Aave as the margin account provider, Balancer for f
 
 # Functions
 depositIntoMarginAccount (uint256 amount)
-@notice Deposits USDC into margin account. The amount is supplied as collateral on Aave V3.
+  @notice Deposits USDC into margin account. The amount is supplied as collateral on Aave V3.
   @dev Make sure to approve the transfer of USDC from user to this contract.
   @param amount The amount of USDC to be transferred.
 
