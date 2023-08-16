@@ -3,7 +3,7 @@
 The contract interfaces with Aave as the margin account provider, Balancer for flashloans and Uniswap V3 for swaps.
 
 # Features
-1. Deposit funds into margin account, which is the Aave accoutn linked the the user's wallet
+1. Deposit funds into margin account, which is the Aave account linked the the user's wallet
 2. Open long & short positions
 3. Close long & short positions
 4. Withdraw funds from the margin account
